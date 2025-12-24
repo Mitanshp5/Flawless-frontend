@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,9 +12,13 @@ export default function Navbar() {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo */}
         <Link href="/" className="flex items-center">
-          <span className="text-2xl font-bold tracking-tighter text-black dark:text-white">
-            FLAWLESS
-          </span>
+          <Image 
+            src="/logo.png" 
+            alt="Flawless Logo" 
+            height={50} 
+            width={300}
+            className="h-12. w-auto object-contain dark:invert"
+          />
         </Link>
 
         {/* Desktop Navigation */}

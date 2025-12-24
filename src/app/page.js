@@ -2,38 +2,17 @@ import Hero from "@/components/Hero";
 import ProductCard from "@/components/ProductCard";
 import Link from "next/link";
 
-const FEATURED_PRODUCTS = [
-  {
-    id: 1,
-    name: "Urban Legend Hoodie",
-    category: "Hoodies",
-    price: 89,
-    slug: "urban-legend-hoodie",
-  },
-  {
-    id: 2,
-    name: "Midnight Tee",
-    category: "T-Shirts",
-    price: 45,
-    slug: "midnight-tee",
-  },
-  {
-    id: 3,
-    name: "Concrete Jungle Hoodie",
-    category: "Hoodies",
-    price: 95,
-    slug: "concrete-jungle-hoodie",
-  },
-  {
-    id: 4,
-    name: "Neon Vibes Tee",
-    category: "T-Shirts",
-    price: 42,
-    slug: "neon-vibes-tee",
-  },
-];
+async function getProducts() {
+  const res = await fetch('http://localhost:5000/api/products', { cache: 'no-store' });
+  if (!res.ok) {
+    throw new Error('Failed to fetch products');
+  }
+  return res.json();
+}
 
-export default function Home() {
+export default async function Home() {
+  const products = await getProducts();
+
   return (
     <div className="flex flex-col min-h-screen">
       <Hero />
@@ -68,8 +47,8 @@ export default function Home() {
           </div>
           
           <div className="mt-6 grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 md:grid-cols-4 md:gap-y-0 lg:gap-x-8">
-            {FEATURED_PRODUCTS.map((product) => (
-              <ProductCard key={product.id} product={product} />
+            {products.map((product) => (
+              <ProductCard key={product._id} product={product} />
             ))}
           </div>
         </div>

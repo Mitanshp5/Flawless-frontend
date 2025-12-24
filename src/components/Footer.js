@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -6,9 +7,13 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
           <div className="flex flex-col gap-4">
-            <span className="text-xl font-bold tracking-tighter text-black dark:text-white">
-              FLAWLESS
-            </span>
+            <Image 
+              src="/logo.png" 
+              alt="Flawless Logo" 
+              width={150} 
+              height={50} 
+              className="h-10 w-auto object-contain dark:invert"
+            />
             <p className="text-sm text-zinc-500 dark:text-zinc-400">
               Premium streetwear for the modern individual. Wear your vibe.
             </p>
