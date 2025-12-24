@@ -75,40 +75,42 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Menu */}
-      {isOpen && (
-        <div className="border-t border-zinc-200 bg-white px-4 py-4 md:hidden dark:border-zinc-800 dark:bg-black">
-          <div className="flex flex-col space-y-4">
-            <Link 
-              href="/shop" 
-              className="text-base font-medium text-zinc-700 hover:text-black dark:text-zinc-300 dark:hover:text-white"
-              onClick={() => setIsOpen(false)}
-            >
-              Shop All
-            </Link>
-            <Link 
-              href="/category/t-shirts" 
-              className="text-base font-medium text-zinc-700 hover:text-black dark:text-zinc-300 dark:hover:text-white"
-              onClick={() => setIsOpen(false)}
-            >
-              T-Shirts
-            </Link>
-            <Link 
-              href="/category/hoodies" 
-              className="text-base font-medium text-zinc-700 hover:text-black dark:text-zinc-300 dark:hover:text-white"
-              onClick={() => setIsOpen(false)}
-            >
-              Hoodies
-            </Link>
-            <Link 
-              href="/about" 
-              className="text-base font-medium text-zinc-700 hover:text-black dark:text-zinc-300 dark:hover:text-white"
-              onClick={() => setIsOpen(false)}
-            >
-              About
-            </Link>
-          </div>
+      <div 
+        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+          isOpen ? "max-h-64 opacity-100 border-t" : "max-h-0 opacity-0 border-t-0"
+        } border-zinc-200 bg-white dark:border-zinc-800 dark:bg-black`}
+      >
+        <div className="flex flex-col space-y-4 px-4 py-4">
+          <Link 
+            href="/shop" 
+            className="text-base font-medium text-zinc-700 hover:text-black dark:text-zinc-300 dark:hover:text-white"
+            onClick={() => setIsOpen(false)}
+          >
+            Shop All
+          </Link>
+          <Link 
+            href="/category/t-shirts" 
+            className="text-base font-medium text-zinc-700 hover:text-black dark:text-zinc-300 dark:hover:text-white"
+            onClick={() => setIsOpen(false)}
+          >
+            T-Shirts
+          </Link>
+          <Link 
+            href="/category/hoodies" 
+            className="text-base font-medium text-zinc-700 hover:text-black dark:text-zinc-300 dark:hover:text-white"
+            onClick={() => setIsOpen(false)}
+          >
+            Hoodies
+          </Link>
+          <Link 
+            href="/about" 
+            className="text-base font-medium text-zinc-700 hover:text-black dark:text-zinc-300 dark:hover:text-white"
+            onClick={() => setIsOpen(false)}
+          >
+            About
+          </Link>
         </div>
-      )}
+      </div>
     </nav>
   );
 }
